@@ -15,9 +15,7 @@ public class UIInputColor : MonoBehaviour
 
     private void OnEnable()
     {
-        Color current = playerId == PlayerId.Player1
-            ? settings.Player1Color
-            : settings.Player2Color;
+        Color current = settings.PlayerColor;
 
         int index = dropdown.options.FindIndex(
             option => option.color.Equals(current));
@@ -37,10 +35,6 @@ public class UIInputColor : MonoBehaviour
     private void ChangeColor(int index)
     {
         Color selected = dropdown.options[index].color;
-
-        if (playerId == PlayerId.Player1)
-            settings.SetPlayer1Color(selected);
-        else
-            settings.SetPlayer2Color(selected);
+        settings.SetPlayerColor(selected);
     }
 }

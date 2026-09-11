@@ -3,18 +3,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Game/Data/Player")]
 public class PlayerSettings : ScriptableObject
 {
+    [Header("Configuration")]
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float playerSize = 2f;
+
+    [Header("Movement")]
+    [SerializeField] private KeyCode moveUp = KeyCode.W;
+    [SerializeField] private KeyCode moveDown = KeyCode.S;
     
-    [Header("Player Colors")]
-    [SerializeField] private Color player1Color = Color.white;
-    [SerializeField] private Color player2Color = Color.red;
+    [Header("Color")]
+    [SerializeField] private Color playerColor = Color.white;
 
-    public Color Player1Color => player1Color;
-    public Color Player2Color => player2Color;
-
+    public Color PlayerColor => playerColor;
     public float PlayerSpeed => playerSpeed;
     public float PlayerSize => playerSize;
+    public KeyCode PlayerMoveUp => moveUp;
+    public KeyCode PlayerMoveDown => moveDown;
 
     public void SetPlayerSpeed(float value)
     {
@@ -26,13 +30,8 @@ public class PlayerSettings : ScriptableObject
         playerSize = value;
     }
     
-    public void SetPlayer1Color(Color value)
+    public void SetPlayerColor(Color value)
     {
-        player1Color = value;
-    }
-
-    public void SetPlayer2Color(Color value)
-    {
-        player2Color = value;
+        playerColor = value;
     }
 }
