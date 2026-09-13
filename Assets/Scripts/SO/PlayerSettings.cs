@@ -4,12 +4,14 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     [Header("Configuration")]
-    [SerializeField] private float playerSpeed = 5f;
-    [SerializeField] private float playerSize = 2f;
+    [SerializeField] private float playerSpeed = 5.0f;
+    [SerializeField] private float playerSize = 2.0f;
 
     [Header("Movement")]
     [SerializeField] private KeyCode moveUp = KeyCode.W;
     [SerializeField] private KeyCode moveDown = KeyCode.S;
+    [SerializeField] private KeyCode moveLeft = KeyCode.A;
+    [SerializeField] private KeyCode moveRight = KeyCode.D;
     
     [Header("Color")]
     [SerializeField] private Color playerColor = Color.white;
