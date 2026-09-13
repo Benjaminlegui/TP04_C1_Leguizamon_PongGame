@@ -21,6 +21,8 @@ public class PlayerSettings : ScriptableObject
     public float PlayerSize => playerSize;
     public KeyCode PlayerMoveUp => moveUp;
     public KeyCode PlayerMoveDown => moveDown;
+    public KeyCode PlayerMoveLeft => moveLeft;
+    public KeyCode PlayerMoveRight => moveRight;
 
     public void SetPlayerSpeed(float value)
     {

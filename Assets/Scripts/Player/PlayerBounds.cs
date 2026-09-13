@@ -8,18 +8,27 @@ public class PlayerBounds : MonoBehaviour
     [Header("Walls")]
     [SerializeField] private Collider2D topWall;
     [SerializeField] private Collider2D bottomWall;
+    [SerializeField] private Collider2D leftWall;
+    [SerializeField] private Collider2D rightWall;
 
     private void Awake()
     {
         playerBodyCollider = GetComponentInChildren<Collider2D>();
     }
 
-    public float ClampPlayer(float value)
+    public float ClampPlayer(float value, char axis)
     {
-        float halfHeight = playerBodyCollider.bounds.extents.y;
-        float minY = bottomWall.bounds.max.y + halfHeight;
-        float maxY = topWall.bounds.min.y - halfHeight;
+        float halfMeassure = playerBodyCollider.bounds.extents.y;
+        float minAxis = bottomWall.bounds.max.y + halfMeassure;
+        float maxAxis = topWall.bounds.min.y - halfMeassure;
 
-        return Mathf.Clamp(value, minY, maxY);
+        if (axis == 'x')
+        {
+            halfMeassure = playerBodyCollider.bounds.extents.x;
+            minAxis = leftWall.bounds.max.x + halfMeassure;
+            maxAxis = rightWall.bounds.min.x - halfMeassure;
+        }
+
+        return Mathf.Clamp(value, minAxis, maxAxis);
     }
 }
