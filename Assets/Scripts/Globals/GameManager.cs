@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Game")]
     [SerializeField] private FieldSideSwitch fieldSideSwitcher;
     [SerializeField] private Ball ball;
+    [SerializeField] private BallCollisions ballCollisions;
     [SerializeField] private PlayerPositionReset player1;
     [SerializeField] private PlayerPositionReset player2;
     private bool matchFinished;
@@ -20,13 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text winnerText;
     [SerializeField] private Button restartButton;
     
-    private int player1Score;
-    private int player2Score;
-    
     void OnEnable()
     {
         uiTimer.OnTimeExpired += HandleTimeout;
-        ball.OnGoal += HandleGoal;
+        ballCollisions.OnGoal += HandleGoal;
         scoreManager.OnWinner += HandleWin;
         restartButton.onClick.AddListener(RestartGame);
     }
@@ -34,7 +32,7 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         uiTimer.OnTimeExpired -= HandleTimeout;
-        ball.OnGoal -= HandleGoal;
+        ballCollisions.OnGoal -= HandleGoal;
         scoreManager.OnWinner -= HandleWin;
         restartButton.onClick.RemoveListener(RestartGame);
     }
