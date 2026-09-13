@@ -4,7 +4,6 @@ using TMPro;
 public class UIInputColor : MonoBehaviour
 {
     [SerializeField] private PlayerSettings settings;
-    [SerializeField] private PlayerId playerId;
 
     private TMP_Dropdown dropdown;
 
