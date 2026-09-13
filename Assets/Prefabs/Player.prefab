@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8299843040058122406}
   - component: {fileID: 5013088800360198295}
   - component: {fileID: 2965731303795094887}
+  - component: {fileID: 2469811088926625940}
+  - component: {fileID: 5892379402494355449}
   - component: {fileID: 8895948375105588298}
   m_Layer: 0
   m_Name: Player
@@ -49,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdb96b9f5f7a214b8db459b291ca8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerSettings: {fileID: 11400000, guid: 180726b2037a681449860cb3f3970aca, type: 2}
+  playerSettings: {fileID: 11400000, guid: 536fb0f2cc7db7d419a4a6bb3bd6ed66, type: 2}
   sprite: {fileID: 0}
 --- !u!114 &5013088800360198295
 MonoBehaviour:
@@ -63,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddce861ee9ea30546b2ea0d3b20af4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  playerSettings: {fileID: 11400000, guid: 180726b2037a681449860cb3f3970aca, type: 2}
+  playerSettings: {fileID: 11400000, guid: 536fb0f2cc7db7d419a4a6bb3bd6ed66, type: 2}
   playerPlayerBounds: {fileID: 2965731303795094887}
   body: {fileID: 8895948375105588298}
 --- !u!114 &2965731303795094887
@@ -81,6 +83,38 @@ MonoBehaviour:
   playerBodyCollider: {fileID: 7585930619177680629}
   topWall: {fileID: 0}
   bottomWall: {fileID: 0}
+--- !u!114 &2469811088926625940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652117965790356743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b4ae379cbd8db469ff9be799db829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collision
+  playerRigidBody: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: 536fb0f2cc7db7d419a4a6bb3bd6ed66, type: 2}
+  topWall: {fileID: 0}
+  bottomWall: {fileID: 0}
+--- !u!114 &5892379402494355449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652117965790356743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b4ae379cbd8db469ff9be799db829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collision
+  playerRigidBody: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: 180726b2037a681449860cb3f3970aca, type: 2}
+  topWall: {fileID: 0}
+  bottomWall: {fileID: 0}
 --- !u!50 &8895948375105588298
 Rigidbody2D:
   serializedVersion: 5
@@ -91,7 +125,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2652117965790356743}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -174,7 +208,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.005808115, y: 0}
+  m_Offset: {x: 0.005808115, y: -0.00857681}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -184,7 +218,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9884839, y: 1}
+  m_Size: {x: 0.9884839, y: 0.93996227}
   m_EdgeRadius: 0
 --- !u!1 &8381685669422901472
 GameObject:
@@ -213,7 +247,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9885, y: 0.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 795558230924636186}
@@ -267,7 +301,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 193080379733523790, guid: b1e90a4cefc1f2a409ac727d50028c54, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
