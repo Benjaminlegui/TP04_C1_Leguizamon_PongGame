@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         
         if (fieldSideSwitcher.Side > 0)
         {
-            scoreManager.AddPoint(1);
+            scoreManager.AddPoint(2);
         }
         else
         {

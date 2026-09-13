@@ -31,6 +31,6 @@ public class UITimer : MonoBehaviour
 
     public void ResetTimer()
     {
-        timer = 20f;
+        timer = gameSettings.RoundLimitTime;
     }
 }
