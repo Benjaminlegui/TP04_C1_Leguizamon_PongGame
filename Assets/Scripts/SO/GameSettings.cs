@@ -4,8 +4,18 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     [SerializeField] private int bestOf = 5;
-    [SerializeField] private float roundLimitTime = 20f;
+    [SerializeField] private int roundLimitTime = 20;
     
     public int BestOf => bestOf;
-    public float RoundLimitTime => roundLimitTime;
+    public int RoundLimitTime => roundLimitTime;
+
+    public void SetRoundLimitTime(int value)
+    {
+        roundLimitTime = value;
+    }
+
+    public void SetBestOf(int value)
+    {
+        bestOf = value;
+    }
 }
