@@ -33,11 +33,19 @@ public class UIPlayerSettings : MonoBehaviour
             playerSize.GetComponentInChildren<TMP_Text>().text = playerSettings.PlayerSize.ToString("F1");
         }
 
-        if (dropdown != null)
-        {
-            dropdown =  GetComponentInChildren<TMP_Dropdown>();
-        }
+        // if (dropdown != null)
+        // {
+        //     dropdown =  GetComponentInChildren<TMP_Dropdown>();
+        //     dropdown.SetValueWithoutNotify();
+        //     dropdown.onValueChanged.AddListener(OnColorChange);
+        // }
     }
+
+    // private void OnColorChange(int index)
+    // {
+    //     Color color = dropdown.options[index].color;
+    //     playerSettings.SetPlayerColor(color);
+    // }
 
     private void OnSizeChange(float value)
     {
