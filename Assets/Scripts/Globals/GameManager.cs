@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BallCollisions ballCollisions;
     [SerializeField] private PlayerPositionReset player1;
     [SerializeField] private PlayerPositionReset player2;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
     [SerializeField] private int countdownSeconds = 3;
     public bool IsPaused => state == GameState.Paused;
     
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         ball.ResetBall();
         uiTimer.ResetTimer();
+        obstacleSpawner.Clear();
     }
 
     private void SetState(GameState newState)
