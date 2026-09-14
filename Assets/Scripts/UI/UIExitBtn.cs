@@ -6,17 +6,22 @@ public class UIExitBtn : MonoBehaviour
     private Button button;
     void Awake()
     {
-            button = GetComponent<Button>();
+        #if UNITY_WEBGL && !UNITY_EDITOR
+                gameObject.SetActive(false);
+        #else
+                button = GetComponent<Button>();
 
-            if (button != null)
-            {
-                button.onClick.AddListener(Exit);
-            }
+                if (button != null)
+                {
+                    button.onClick.AddListener(Exit);
+                }
+        #endif
     }
 
     void OnDestroy()
     {
-        button.onClick.RemoveAllListeners();
+        if (button != null)
+            button.onClick.RemoveAllListeners();
     }
     
     private void Exit()
