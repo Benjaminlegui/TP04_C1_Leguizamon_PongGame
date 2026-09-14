@@ -1610,6 +1610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08924d8c53c118e41b055146fbc41df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallCollisions
+  speedBoost: 1.05
+  minSpeed: 6
+  maxSpeed: 10
   fieldSideSwitch: {fileID: 1761866387}
 --- !u!1 &908120758
 GameObject:
@@ -2420,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652117965790356743, guid: 60e62e21bce7cd44482ea51c4f39ea18, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2965731303795094887, guid: 60e62e21bce7cd44482ea51c4f39ea18, type: 3}
       propertyPath: topWall
@@ -2440,11 +2443,11 @@ PrefabInstance:
       objectReference: {fileID: 1453916806}
     - target: {fileID: 3297769575006464726, guid: 60e62e21bce7cd44482ea51c4f39ea18, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8381685669422901472, guid: 60e62e21bce7cd44482ea51c4f39ea18, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5892379402494355449, guid: 60e62e21bce7cd44482ea51c4f39ea18, type: 3}
@@ -4623,6 +4626,7 @@ MonoBehaviour:
   creditsButton: {fileID: 1942974636}
   creditsBackButton: {fileID: 194695811}
   continueButton: {fileID: 1942974635}
+  gameManager: {fileID: 1216560185}
   pauseMenu: {fileID: 6863073262975167933}
 --- !u!224 &2386198917726043860
 RectTransform:
