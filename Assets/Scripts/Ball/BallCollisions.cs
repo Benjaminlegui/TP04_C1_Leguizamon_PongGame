@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class BallCollisions : MonoBehaviour
 {
+    [Header("Speed")]
+    [SerializeField] private float speedBoost = 1.05f;
+    [SerializeField] private float minSpeed = 6f;
+    [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private FieldSideSwitch fieldSideSwitch;
+    
     private bool  notInitialKick = false;
     private Rigidbody2D rb;
     public event Action<int> OnGoal;
-
+    
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,11 +34,13 @@ public class BallCollisions : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         
-        if (player != null)
-        {
-            Vector2 direction = rb.linearVelocity.normalized;
-            rb.AddForce(direction * 0.5f, ForceMode2D.Impulse);
-        }
+        if (player == null)
+            return;
+
+        float boosted = rb.linearVelocity.magnitude * speedBoost; // boosted grabs the direction that the physics engine calculated and we only change the magnitude by multiplying it by speedBoot
+        float speed = Mathf.Clamp(boosted, minSpeed, maxSpeed);
+
+        rb.linearVelocity = rb.linearVelocity.normalized * speed;
     }
     
     private void HandleSwitcherCollision(Collider2D other)
