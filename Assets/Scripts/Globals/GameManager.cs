@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BallCollisions ballCollisions;
     [SerializeField] private PlayerPositionReset player1;
     [SerializeField] private PlayerPositionReset player2;
-    private bool matchFinished;
     public bool IsPaused => state == GameState.Paused;
     
     [Header("HUD")]
