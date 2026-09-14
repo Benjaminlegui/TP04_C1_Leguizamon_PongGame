@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Player2
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSettings
   playerSpeed: 5
-  playerSize: 2
+  playerSize: 3
   moveUp: 273
   moveDown: 274
   moveLeft: 276
   moveRight: 275
-  playerColor: {r: 0.9720557, g: 0.63031095, b: 0.27311423, a: 1}
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
