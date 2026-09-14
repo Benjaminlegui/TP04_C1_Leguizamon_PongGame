@@ -64,14 +64,7 @@ public class GameManager : MonoBehaviour
         if (state == GameState.Finished)
             return;
         
-        if (fieldSideSwitcher.Side > 0)
-        {
-            scoreManager.AddPoint(PlayerId.Player2);
-        }
-        else
-        {
-            scoreManager.AddPoint(PlayerId.Player2);
-        }
+        scoreManager.AddPoint(fieldSideSwitcher.OpposingSide);
 
         if (state == GameState.Finished)
             return;

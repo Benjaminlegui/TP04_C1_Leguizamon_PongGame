@@ -9,11 +9,9 @@ public class BallCollisions : MonoBehaviour
     [SerializeField] private float maxSpeed = 10f;
     
     [Header("Walls")]
-    [SerializeField] private FieldSideSwitch fieldSideSwitch;
     [SerializeField] private Collider2D leftGoal;
     [SerializeField] private Collider2D rightGoal;
     
-    private bool  notInitialKick = false;
     private Rigidbody2D rb;
     public event Action<PlayerId> OnGoal;
     
@@ -29,11 +27,6 @@ public class BallCollisions : MonoBehaviour
         HandleWallCollision(other);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        HandleSwitcherCollision(other);
-    }
-
     private void HandlePlayerCollision(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
@@ -45,18 +38,6 @@ public class BallCollisions : MonoBehaviour
         float speed = Mathf.Clamp(boosted, minSpeed, maxSpeed);
 
         rb.linearVelocity = rb.linearVelocity.normalized * speed;
-    }
-    
-    private void HandleSwitcherCollision(Collider2D other)
-    {
-        FieldSideSwitch switcher = other.gameObject.GetComponent<FieldSideSwitch>();
-
-        if (switcher == fieldSideSwitch && notInitialKick)
-        {
-            switcher.ChangeSide();
-        }
-
-        notInitialKick = true;
     }
 
     private void HandleWallCollision(Collision2D collision)

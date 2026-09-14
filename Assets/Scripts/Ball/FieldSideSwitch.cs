@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class FieldSideSwitch : MonoBehaviour
 {
-    [SerializeField] private float side = 0f;
-    public float Side => side;
-    
-    public void ChangeSide()
-    {
-        side *= -1f;
-    }
+    [SerializeField] private Transform ball;
 
-    public void SetInitialSide(float value)
-    {
-        side = value;
-    }
+    public PlayerId BallSide => ball.position.x >= transform.position.x
+        ? PlayerId.Player2
+        : PlayerId.Player1;
+    
+    public PlayerId OpposingSide => BallSide == PlayerId.Player1
+        ? PlayerId.Player2
+        : PlayerId.Player1;
 }
