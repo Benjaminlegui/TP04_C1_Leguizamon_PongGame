@@ -75,30 +75,6 @@ Changes apply live, without restarting the point.
 
 ---
 
-## Estructura / Structure
-
-```
-Assets/
-├── Data/            ScriptableObjects: GameSettings, Player1, Player2
-├── Prefabs/
-│   ├── Gameplay/    Player
-│   ├── Systems/     EventSystem, SceneController
-│   └── UI/          MainPanel, SettingsMenu, Credits, ColorSelection
-├── Scenes/          InitialScene → MainMenu → Game
-└── Scripts/
-    ├── Ball/        Ball, BallCollisions, FieldSideSwitch
-    ├── Globals/     GameManager, ScoreManager, SceneController
-    ├── Player/      Movement, PlayerBounds, Collision, Player
-    ├── SO/          GameSettings, PlayerSettings
-    └── UI/          menús, HUD y sliders de configuración
-```
-
-La configuración vive en ScriptableObjects, así que los menús y el juego leen y escriben los mismos datos sin conocerse entre sí.
-
-`GameManager` es el único dueño de `Time.timeScale`: una máquina de estados con `Countdown`, `Playing`, `Paused` y `Finished` decide cuándo corre el tiempo, y el resto de los scripts le piden los cambios en lugar de tocarlo por su cuenta.
-
----
-
 ### Desarrollado por / Developed by
 
 Benjamín Leguizamón
