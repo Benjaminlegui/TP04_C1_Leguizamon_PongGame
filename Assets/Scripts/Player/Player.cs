@@ -17,17 +17,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         ApplyColor();
-        // ScalePlayer();
+        ScalePlayer();
     }
     
-    
-    
-    // private void ScalePlayer()
-    // {
-    //     Vector3 scale = transform.localScale;
-    //     scale.y = playerSettings.PlayerSize;
-    //     transform.localScale = scale;
-    // }
+    private void ScalePlayer()
+    {
+        Vector3 scale = transform.localScale;
+        scale.y = playerSettings.PlayerSize;
+        transform.localScale = scale;
+    }
     
     private void ApplyColor()
     {
