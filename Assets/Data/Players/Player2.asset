@@ -16,4 +16,6 @@ MonoBehaviour:
   playerSize: 2
   moveUp: 273
   moveDown: 274
-  playerColor: {r: 0.01419878, g: 0, b: 1, a: 1}
+  moveLeft: 276
+  moveRight: 275
+  playerColor: {r: 0.9720557, g: 0.63031095, b: 0.27311423, a: 1}
