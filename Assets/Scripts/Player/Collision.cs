@@ -5,6 +5,7 @@ public class Collision : MonoBehaviour
     [Header("Player vars")]
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private Color wallTouchColor = Color.black;
     private Color currentColor;
     
     [Header("Walls")]
@@ -23,7 +24,7 @@ public class Collision : MonoBehaviour
         
         if (collision.collider == topWall || collision.collider == bottomWall)
         {
-            playerSettings.SetPlayerColor(Color.black);
+            playerSettings.SetPlayerColor(wallTouchColor);
         }
 
         if (ball != null)
@@ -37,7 +38,7 @@ public class Collision : MonoBehaviour
     {
         if (collision.collider == topWall || collision.collider == bottomWall)
         {
-            playerSettings.SetPlayerColor(Color.black);
+            playerSettings.SetPlayerColor(wallTouchColor);
         }
     }
 

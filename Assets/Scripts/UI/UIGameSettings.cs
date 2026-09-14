@@ -7,6 +7,8 @@ public class UIGameSettings : MonoBehaviour
     [SerializeField] private GameSettings gameSettings;
     [SerializeField] private TMP_InputField roundTime;
     [SerializeField] private TMP_InputField bestOfRounds;
+    [SerializeField] private int minRoundTime = 5;
+    [SerializeField] private int minBestOf = 3;
     private int roundLimitTime => gameSettings.RoundLimitTime;
     private int bestOf => gameSettings.BestOf;
 
@@ -27,14 +29,14 @@ public class UIGameSettings : MonoBehaviour
 
     private void HandleRoundTimeChange(string value)
     {
-        int parsedValue = ValidateInput(value, 5);
+        int parsedValue = ValidateInput(value, minRoundTime);
         gameSettings.SetRoundLimitTime(parsedValue);
         roundTime.SetTextWithoutNotify(parsedValue.ToString());
     }
 
     private void HandleBestOfRoundsChange(string value)
     {
-        int parsedValue = ValidateInput(value, 3);
+        int parsedValue = ValidateInput(value, minBestOf);
         gameSettings.SetBestOf(parsedValue);
         bestOfRounds.SetTextWithoutNotify(parsedValue.ToString());
     }

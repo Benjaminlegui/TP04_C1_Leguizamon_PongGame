@@ -15,12 +15,14 @@ public class UISettings : MonoBehaviour
     [SerializeField] private TMP_Text sizeSliderText;
     [SerializeField] private Slider sizeSlider;
     
+    private const string SliderFormat = "F1";
+    
     void Awake()
     {
         speedSlider.SetValueWithoutNotify(settings.PlayerSpeed);
-        speedSliderText.text = settings.PlayerSpeed.ToString("F1");
+        speedSliderText.text = settings.PlayerSpeed.ToString(SliderFormat);
         sizeSlider.SetValueWithoutNotify(settings.PlayerSize);
-        sizeSliderText.text = settings.PlayerSize.ToString("F1");
+        sizeSliderText.text = settings.PlayerSize.ToString(SliderFormat);
         
         speedSlider.onValueChanged.AddListener(OnSpeedChange);
         sizeSlider.onValueChanged.AddListener(OnSizeChange);
@@ -35,12 +37,12 @@ public class UISettings : MonoBehaviour
     private void OnSpeedChange(float value)
     {
         settings.SetPlayerSpeed(value);
-        speedSliderText.text = value.ToString("F1");
+        speedSliderText.text = value.ToString(SliderFormat);
     }
 
     private void OnSizeChange(float value)
     {
         settings.SetPlayerSize(value);
-        sizeSliderText.text = value.ToString("F1");
+        sizeSliderText.text = value.ToString(SliderFormat);
     }
 }

@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] private float speed = 6f;
     [SerializeField] private FieldSideSwitch fieldSideSwitch;
+    [SerializeField] private float serveAngle = 0.5f;
 
     private Rigidbody2D rb;
 
@@ -17,7 +18,7 @@ public class Ball : MonoBehaviour
     public void ThrowBall()
     {
         float xAxis = Random.value > 0.5f ? 1f : -1f;
-        float yAxis = Random.value > 0.5f ? 0.5f : -0.5f;
+        float yAxis = Random.value > 0.5f ? serveAngle : -serveAngle;
         
         Vector2 direction = new Vector2(xAxis, yAxis).normalized;
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
