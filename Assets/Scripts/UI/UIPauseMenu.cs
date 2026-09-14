@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseUIMenu : UIMenu
+public class UIPauseMenu : UIMenu
 {
     [SerializeField] private Button continueButton;
     [SerializeField] private GameManager gameManager;
