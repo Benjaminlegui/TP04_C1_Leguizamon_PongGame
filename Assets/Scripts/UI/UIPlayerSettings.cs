@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,11 +8,9 @@ public class UIPlayerSettings : MonoBehaviour
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private GameObject playerSpeed;
     [SerializeField] private GameObject playerSize;
-    [SerializeField] private TMP_Dropdown dropdown;
     
     private Slider  playerSpeedSlider;
     private Slider playerSizeSlider;
-    private Color playerColor => playerSettings.PlayerColor;
 
     private const string SliderFormat = "F1";
     
@@ -34,6 +33,15 @@ public class UIPlayerSettings : MonoBehaviour
             
             playerSize.GetComponentInChildren<TMP_Text>().text = playerSettings.PlayerSize.ToString(SliderFormat);
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (playerSpeedSlider != null)
+            playerSpeedSlider.onValueChanged.RemoveAllListeners();
+
+        if (playerSizeSlider != null)
+            playerSizeSlider.onValueChanged.RemoveAllListeners();
     }
 
     private void OnSizeChange(float value)

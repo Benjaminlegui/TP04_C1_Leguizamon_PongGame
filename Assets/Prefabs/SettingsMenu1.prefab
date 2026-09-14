@@ -725,7 +725,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3483939092426548608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3183,6 +3183,8 @@ MonoBehaviour:
   gameSettings: {fileID: 11400000, guid: 81acc64cfbce0144f86bde45f5c9256b, type: 2}
   roundTime: {fileID: 4332835494562569232}
   bestOfRounds: {fileID: 2659475438983424369}
+  minRoundTime: 5
+  minBestOf: 3
 --- !u!1 &2344808008303923584
 GameObject:
   m_ObjectHideFlags: 0
