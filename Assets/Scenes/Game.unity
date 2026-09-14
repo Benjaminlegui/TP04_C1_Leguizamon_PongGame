@@ -878,63 +878,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4316575132093538743, guid: 1472cfafe80c5174c80fe598e8be4085, type: 3}
   m_PrefabInstance: {fileID: 194695809}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &209470185
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 263.13873
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 168.81297
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264719908157360501, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5641289224208188672, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
-      propertyPath: m_Name
-      value: EventSystem
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f3e8d98cb79f4504294c797108fb4e76, type: 3}
 --- !u!1 &398766517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1129,6 @@ GameObject:
   - component: {fileID: 849593157}
   - component: {fileID: 849593156}
   - component: {fileID: 849593155}
-  - component: {fileID: 849593159}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1277,18 +1219,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &849593159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849593154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33179618c4deec4db8f74ef2aa69d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIHud
 --- !u!1 &869979582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 6
   fieldSideSwitch: {fileID: 1761866387}
+  serveAngle: 0.5
 --- !u!212 &889007311
 SpriteRenderer:
   serializedVersion: 2
@@ -1614,6 +1545,8 @@ MonoBehaviour:
   minSpeed: 6
   maxSpeed: 10
   fieldSideSwitch: {fileID: 1761866387}
+  leftGoal: {fileID: 1890428789}
+  rightGoal: {fileID: 81032949}
 --- !u!1 &908120758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2125,7 @@ MonoBehaviour:
   ballCollisions: {fileID: 889007313}
   player1: {fileID: 604877841}
   player2: {fileID: 2006287885}
+  countdownSeconds: 3
   uiTimer: {fileID: 2072022099}
   scoreManager: {fileID: 172757568}
   countdownText: {fileID: 38146624}
@@ -4860,6 +4794,5 @@ SceneRoots:
   - {fileID: 1607161763}
   - {fileID: 849593158}
   - {fileID: 3098665202062863354}
-  - {fileID: 209470185}
   - {fileID: 1779720824}
   - {fileID: 1216560186}
