@@ -4,11 +4,10 @@ using UnityEngine.UI;
 public class PauseUIMenu : UIMenu
 {
     [SerializeField] private Button continueButton;
+    [SerializeField] private GameManager gameManager;
     
     [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenu;
-    
-    private bool isPaused = false;
     
     protected override void Awake()
     {
@@ -25,7 +24,8 @@ public class PauseUIMenu : UIMenu
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause();
+            gameManager.TogglePause();
+            RefreshMenu();
         }
     }
 
@@ -35,30 +35,19 @@ public class PauseUIMenu : UIMenu
         continueButton.onClick.RemoveListener(Resume);
     }
 
-    public void TogglePause()
-    {
-        if (isPaused)
-        {
-            Resume();
-        }
-        else
-        {
-            Pause();
-        }
-    }
-
     public void Resume()
     {
-        isPaused = false;
-        Time.timeScale = 1f;
-        pauseMenu.SetActive(false);
+        if (gameManager.IsPaused)
+            gameManager.TogglePause();
+        
+        RefreshMenu();
     }
 
-    public void Pause()
+    private void RefreshMenu()
     {
-        isPaused = true;
-        Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
-        ShowMain();
+        pauseMenu.SetActive(gameManager.IsPaused);
+
+        if (gameManager.IsPaused)
+            ShowMain();
     }
 }

@@ -13,11 +13,6 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    private void Start()
-    {
-        ThrowBall();
-    }
     
     public void ThrowBall()
     {
