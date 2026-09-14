@@ -2247,6 +2247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FieldSideSwitch
   ball: {fileID: 889007312}
+  centreLine: {fileID: 908120761}
 --- !u!1001 &1224766757
 PrefabInstance:
   m_ObjectHideFlags: 0
