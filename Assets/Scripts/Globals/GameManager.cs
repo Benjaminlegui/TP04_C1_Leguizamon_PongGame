@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BallCollisions ballCollisions;
     [SerializeField] private PlayerPositionReset player1;
     [SerializeField] private PlayerPositionReset player2;
+    [SerializeField] private int countdownSeconds = 3;
     public bool IsPaused => state == GameState.Paused;
     
     [Header("HUD")]
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
         restartButton.onClick.RemoveListener(RestartGame);
     }
 
-    void HandleGoal(int playerId)
+    void HandleGoal(PlayerId playerId)
     {
         if (state == GameState.Finished)
             return;
@@ -65,11 +66,11 @@ public class GameManager : MonoBehaviour
         
         if (fieldSideSwitcher.Side > 0)
         {
-            scoreManager.AddPoint(2);
+            scoreManager.AddPoint(PlayerId.Player2);
         }
         else
         {
-            scoreManager.AddPoint(1);
+            scoreManager.AddPoint(PlayerId.Player2);
         }
 
         if (state == GameState.Finished)
@@ -78,11 +79,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RestartRound());
     }
 
-    void HandleWin(int playerId)
+    void HandleWin(PlayerId playerId)
     {
         SetState(GameState.Finished);
         winnerUI.SetActive(true);
-        winnerText.text = $"Player {playerId} wins";
+        winnerText.text = $"Player {(int)playerId} wins";
     }
 
     void RestartGame()
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Countdown);
         ResetRound();
 
-        yield return StartCoroutine(CountDown(3));
+        yield return StartCoroutine(CountDown(countdownSeconds));
         
         if (state == GameState.Finished)
             yield break;

@@ -7,11 +7,15 @@ public class BallCollisions : MonoBehaviour
     [SerializeField] private float speedBoost = 1.05f;
     [SerializeField] private float minSpeed = 6f;
     [SerializeField] private float maxSpeed = 10f;
+    
+    [Header("Walls")]
     [SerializeField] private FieldSideSwitch fieldSideSwitch;
+    [SerializeField] private Collider2D leftGoal;
+    [SerializeField] private Collider2D rightGoal;
     
     private bool  notInitialKick = false;
     private Rigidbody2D rb;
-    public event Action<int> OnGoal;
+    public event Action<PlayerId> OnGoal;
     
     
     void Awake()
@@ -37,7 +41,7 @@ public class BallCollisions : MonoBehaviour
         if (player == null)
             return;
 
-        float boosted = rb.linearVelocity.magnitude * speedBoost; // boosted grabs the direction that the physics engine calculated and we only change the magnitude by multiplying it by speedBoot
+        float boosted = rb.linearVelocity.magnitude * speedBoost;
         float speed = Mathf.Clamp(boosted, minSpeed, maxSpeed);
 
         rb.linearVelocity = rb.linearVelocity.normalized * speed;
@@ -57,14 +61,12 @@ public class BallCollisions : MonoBehaviour
 
     private void HandleWallCollision(Collision2D collision)
     {
-        string wall = collision.gameObject.name;
-        
-        if (wall == "Left")
+        if (collision.collider == leftGoal)
         {
-            OnGoal?.Invoke(2);
-        } else if (wall == "Right")
+            OnGoal?.Invoke(PlayerId.Player2);
+        } else if (collision.collider == rightGoal)
         {
-            OnGoal?.Invoke(1);
+            OnGoal?.Invoke(PlayerId.Player1);
         }
     }
 }

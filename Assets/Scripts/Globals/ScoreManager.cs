@@ -10,11 +10,11 @@ public class ScoreManager : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
     private int goalsToWin => (gameSettings.BestOf / 2) + 1;
-    public event Action<int> OnWinner;
+    public event Action<PlayerId> OnWinner;
 
-    public void AddPoint(int playerId)
+    public void AddPoint(PlayerId playerId)
     {
-        if (playerId == 1)
+        if (playerId == PlayerId.Player1)
         {
             player1Score++;
             player1ScoreText.text = player1Score.ToString();
@@ -32,12 +32,12 @@ public class ScoreManager : MonoBehaviour
     {
         if (goalsToWin == player1Score)
         {
-            OnWinner?.Invoke(1);
+            OnWinner?.Invoke(PlayerId.Player1);
         }
 
         if (goalsToWin == player2Score)
         {
-            OnWinner?.Invoke(2);
+            OnWinner?.Invoke(PlayerId.Player2);
         }
     }
 
