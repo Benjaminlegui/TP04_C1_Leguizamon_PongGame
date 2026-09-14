@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player2
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSettings
   playerSpeed: 5
-  playerSize: 3
+  playerSize: 2
   moveUp: 273
   moveDown: 274
   moveLeft: 276
