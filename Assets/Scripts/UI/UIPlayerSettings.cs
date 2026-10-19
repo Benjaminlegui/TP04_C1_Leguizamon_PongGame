@@ -1,3 +1,4 @@
+// Suggestion: El using System no se usa en este archivo. Borralo.
 using System;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class UIPlayerSettings : MonoBehaviour
             playerSpeedSlider.SetValueWithoutNotify(playerSettings.PlayerSpeed);
             playerSpeedSlider.onValueChanged.AddListener(OnSpeedChange);
             
+            // Suggestion: GetComponentInChildren<TMP_Text>() se repite acá, en el bloque de playerSize y en los dos callbacks de cambio.
+            // Cacheá los dos TMP_Text en Awake, igual que hacés con los sliders.
             playerSpeed.GetComponentInChildren<TMP_Text>().text = playerSettings.PlayerSpeed.ToString(SliderFormat);
         }
 

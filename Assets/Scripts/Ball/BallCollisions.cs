@@ -5,6 +5,8 @@ public class BallCollisions : MonoBehaviour
 {
     [Header("Speed")]
     [SerializeField] private float speedBoost = 1.05f;
+    // Suggestion: minSpeed repite el speed = 6f de Ball.cs y ninguno de los dos sale de un ScriptableObject.
+    // Los datos de inicialización de la pelota (velocidad de saque, boost, mínimo y máximo) irían en un BallSettings SO, como ya hacés con PlayerSettings.
     [SerializeField] private float minSpeed = 6f;
     [SerializeField] private float maxSpeed = 10f;
     

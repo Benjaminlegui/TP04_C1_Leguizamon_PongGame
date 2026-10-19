@@ -1,3 +1,5 @@
+// Suggestion: El using System no se usa en este archivo. Es lo que obliga al alias de Random de la línea siguiente,
+// porque trae System.Random. Borrá este using y el alias deja de hacer falta.
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;

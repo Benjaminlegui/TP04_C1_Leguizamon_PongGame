@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Suggestion: "Persistant" está mal escrito, en inglés es "Persistent".
+// Renombrá la clase y el archivo juntos desde el Project de Unity para no romper la referencia del prefab.
 public class EventSystemPersistant : MonoBehaviour
 {
     private static EventSystemPersistant _instance;

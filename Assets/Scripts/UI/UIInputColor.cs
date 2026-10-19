@@ -16,6 +16,9 @@ public class UIInputColor : MonoBehaviour
     {
         Color current = settings.PlayerColor;
 
+        // Warning: Color.Equals compara los cuatro floats por igualdad exacta. Además, después del primer golpe de pelota el SO
+        // tiene un color random que no está en la lista, así que el dropdown queda mostrando el último valor elegido.
+        // Guardá el índice elegido en lugar de buscarlo por color, o compará con tolerancia.
         int index = dropdown.options.FindIndex(
             option => option.color.Equals(current));
 

@@ -1,3 +1,4 @@
+// Suggestion: El using System no se usa en este archivo. Borralo.
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,6 +8,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private PlayerSettings playerSettings;
     
     [FormerlySerializedAs("playerBounds")] 
+    // Suggestion: playerPlayerBounds repite "player" dos veces. Con playerBounds alcanza, y el FormerlySerializedAs ya no hace falta
+    // una vez que el prefab se guardó con el nombre nuevo.
     [SerializeField] private PlayerBounds playerPlayerBounds;
     [SerializeField] private Rigidbody2D body;
     private float moveSpeed => playerSettings.PlayerSpeed;
@@ -18,6 +21,8 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        // Suggestion: body y playerPlayerBounds son [SerializeField] y el prefab ya los tiene asignados, pero acá los pisás con GetComponent.
+        // Elegí una de las dos formas. El mismo patrón está en Player.cs (sprite) y PlayerBounds.cs (playerBodyCollider).
         playerPlayerBounds = GetComponent<PlayerBounds>();
         body = GetComponent<Rigidbody2D>();
     }

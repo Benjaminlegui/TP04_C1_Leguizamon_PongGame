@@ -30,6 +30,9 @@ public class ScoreManager : MonoBehaviour
 
     private void CheckWinner()
     {
+        // Bug: Comparás con == (acá y en la línea del jugador 2). Si en la pausa se baja el BestOf desde UIGameSettings
+        // y un jugador ya tiene más goles que el nuevo goalsToWin, la igualdad no se cumple nunca y la partida no termina.
+        // Usá player1Score >= goalsToWin y lo mismo para el jugador 2.
         if (goalsToWin == player1Score)
         {
             OnWinner?.Invoke(PlayerId.Player1);

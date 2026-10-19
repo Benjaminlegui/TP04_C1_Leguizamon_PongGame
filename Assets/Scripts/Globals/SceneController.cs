@@ -1,3 +1,4 @@
+// Suggestion: El using System no se usa en este archivo (el try/finally no lo necesita). Borralo.
 using System;
 using System.Collections;
 using UnityEngine;

@@ -16,6 +16,8 @@ public class PlayerBounds : MonoBehaviour
         playerBodyCollider = GetComponentInChildren<Collider2D>();
     }
 
+    // Suggestion: El eje como char ('x' o 'y') es un valor mágico: cualquier otro char cae en el caso de y sin aviso.
+    // Separalo en ClampX y ClampY, o recibí un Vector2 y devolvé el Vector2 ya limitado.
     public float ClampPlayer(float value, char axis)
     {
         float halfMeassure = playerBodyCollider.bounds.extents.y;

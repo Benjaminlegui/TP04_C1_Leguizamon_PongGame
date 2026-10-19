@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RestartRound());
     }
 
+    // Suggestion: HandleTimeout repite línea por línea el cuerpo de HandleGoal, solo cambia quién recibe el punto.
+    // Hacé que llame a HandleGoal(fieldSideSwitcher.OpposingSide) y te queda la lógica en un solo lugar.
     void HandleTimeout()
     {
         if (state == GameState.Finished)
